@@ -1,0 +1,43 @@
+{
+  "name": "docker-utilities",
+  "version": "1.0.0",
+  "description": "Utilities built into docker images.",
+  "scripts": {
+    "prepare": "test -d node_modules/husky && husky || echo \"husky is not installed\"",
+    "install": "pnpm --filter \"./packages/**\" run -r build"
+  },
+  "keywords": [],
+  "author": "Soulike",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/js": "^9.8.0",
+    "@types/node": "^22.0.0",
+    "commitlint": "^19.3.0",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.18.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSpacing": false,
+    "tabWidth": 2
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "(servers|packages)/**/src/**/*.(j|t)(s|sx)": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ]
+  }
+}
