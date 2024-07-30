@@ -1,0 +1,15 @@
+{
+  "name": "vultr-ddns",
+  "version": "1.0.0",
+  "description": "Vultr DDNS",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Soulike",
+  "license": "MIT",
+  "devDependencies": {
+    "is-ip": "^5.0.1"
+  }
+}
