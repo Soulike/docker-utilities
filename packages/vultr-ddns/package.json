@@ -4,12 +4,14 @@
   "description": "Vultr DDNS",
   "main": "dist/index.js",
   "scripts": {
+    "build": "rm -rf dist && tsc",
     "test": "jest"
   },
+  "type": "module",
   "keywords": [],
   "author": "Soulike",
   "license": "MIT",
   "devDependencies": {
-    "is-ip": "^5.0.1"
+    "ip-address": "^9.0.5"
   }
 }

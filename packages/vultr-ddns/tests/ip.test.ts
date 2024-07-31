@@ -1,15 +1,15 @@
-import {isIPv4, isIPv6} from 'is-ip';
+import {Address4, Address6} from 'ip-address';
 import {describe, expect, it} from '@jest/globals';
-import {getIPv4, getIPv6} from '../src/ip';
+import {IPQuery} from '../src/IPQuery';
 
 describe('Retrieve IP Addresses from Remote', () => {
   it('should return IPv4', async () => {
-    const ipv4 = await getIPv4();
-    expect(isIPv4(ipv4)).toBeTruthy();
+    const ipv4 = await IPQuery.getIPv4();
+    expect(Address4.isValid(ipv4)).toBeTruthy();
   });
 
   it('should return IPv6', async () => {
-    const ipv6 = await getIPv6();
-    expect(isIPv6(ipv6)).toBeTruthy();
+    const ipv6 = await IPQuery.getIPv6();
+    expect(Address6.isValid(ipv6)).toBeTruthy();
   });
 })

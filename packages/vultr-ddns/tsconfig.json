@@ -3,5 +3,6 @@
     "rootDir": "./src",
     "outDir": "./dist"
   },
-  "extends": "../../tsconfig.json"
+  "extends": "../../tsconfig.json",
+  "exclude": ["tests"]
 }
