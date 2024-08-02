@@ -1,6 +1,6 @@
 import {Address4, Address6} from 'ip-address';
 import {describe, expect, it} from '@jest/globals';
-import {IPQuery} from '../src/IPQuery';
+import {IPQuery} from '../src/IPQuery.js';
 
 describe('Retrieve IP Addresses from Remote', () => {
   it('should return IPv4', async () => {

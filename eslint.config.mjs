@@ -7,7 +7,7 @@ import tsEslint from 'typescript-eslint';
 
 export default tsEslint.config(
   {
-    files: ['@packages/**/src/**/*.@(t|j)@(s|sx)'],
+    files: ['@packages/**/src/**/*.@(t|j)@(s|sx)','@apps/**/src/**/*.@(t|j)@(s|sx)'],
     extends: [
       eslint.configs.recommended,
       ...tsEslint.configs.recommended,
