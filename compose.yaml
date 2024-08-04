@@ -9,6 +9,7 @@ services:
       - DOMAIN=soulike.tech
       - IPV4_SUBDOMAIN=ipv4.ddns
       - IPV6_SUBDOMAIN=ipv6.ddns
+    network_mode: "host"
 secrets:
   vultr-api-key:
     file: $HOME/vultr-api-key
