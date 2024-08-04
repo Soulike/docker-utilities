@@ -28,11 +28,11 @@ export class DNSConfigurator {
 
   public async setIPv4(
     address: IPv4DNSRecord['data'],
-    ttl: IPv4DNSRecord['ttl']
+    ttl: IPv4DNSRecord['ttl'],
   ) {
     assert.ok(
       Address4.isValid(address),
-      `Trying to set an invalid address ${address}`
+      `Trying to set an invalid address ${address}`,
     );
     const record = new IPv4DNSRecord(address, this.subdomain, 0, ttl);
     return this.setDNSRecord(record);
@@ -45,11 +45,11 @@ export class DNSConfigurator {
 
   public async setIPv6(
     address: IPv6DNSRecord['data'],
-    ttl: IPv6DNSRecord['ttl']
+    ttl: IPv6DNSRecord['ttl'],
   ) {
     assert.ok(
       Address6.isValid(address),
-      `Trying to set an invalid address ${address}`
+      `Trying to set an invalid address ${address}`,
     );
     const record = new IPv6DNSRecord(address, this.subdomain, 0, ttl);
     return this.setDNSRecord(record);
@@ -62,7 +62,7 @@ export class DNSConfigurator {
     }
 
     const url = new URL(
-      `https://api.vultr.com/v2/domains/${this.domain}/records/${serverRecord.id}`
+      `https://api.vultr.com/v2/domains/${this.domain}/records/${serverRecord.id}`,
     );
     const headers = this.getRequestHeadersWithAPIKey();
     headers.set('Content-Type', 'application/json');
@@ -70,13 +70,13 @@ export class DNSConfigurator {
     await fetch(url, {
       method: 'PATCH',
       headers,
-      body
+      body,
     });
   }
 
   private async getAllDnsRecordsFromServer(): Promise<VultrDNSRecords> {
     const url = new URL(
-      `https://api.vultr.com/v2/domains/${this.domain}/records`
+      `https://api.vultr.com/v2/domains/${this.domain}/records`,
     );
     const headers = this.getRequestHeadersWithAPIKey();
 
@@ -85,15 +85,15 @@ export class DNSConfigurator {
   }
 
   private async getDnsRecordFromServer(
-    dnsType: DNSRecord['type']
+    dnsType: DNSRecord['type'],
   ): Promise<VultrDNSRecord> {
     const {records} = await this.getAllDnsRecordsFromServer();
     const record = records.find(
-      (record) => record.name === this.subdomain && record.type === dnsType
+      (record) => record.name === this.subdomain && record.type === dnsType,
     );
     assert.ok(
       record,
-      `DNS record for ${this.subdomain}.${this.domain} in type ${dnsType} not found.`
+      `DNS record for ${this.subdomain}.${this.domain} in type ${dnsType} not found.`,
     );
     return record;
   }

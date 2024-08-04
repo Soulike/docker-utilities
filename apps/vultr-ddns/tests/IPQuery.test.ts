@@ -12,4 +12,4 @@ describe('Retrieve IP Addresses from Remote', () => {
     const ipv6 = await IPQuery.getIPv6();
     expect(Address6.isValid(ipv6)).toBeTruthy();
   });
-})
+});

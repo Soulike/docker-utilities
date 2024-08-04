@@ -9,14 +9,18 @@ describe('DNSConfigurator', () => {
 
   beforeAll(async () => {
     const apiKey = env['VULTR_API_KEY'];
-    assert.ok(apiKey, 'Vultr API Key is not set as environment variable VULTR_API_KEY');
+    assert.ok(
+      apiKey,
+      'Vultr API Key is not set as environment variable VULTR_API_KEY',
+    );
     dnsConfigurator = new DNSConfigurator(apiKey, 'soulike.tech', 'test.ddns');
   });
 
   afterAll(async () => {
     await Promise.all([
       dnsConfigurator.setIPv4('127.0.0.1', 300),
-      dnsConfigurator.setIPv6('::1', 300)]);
+      dnsConfigurator.setIPv6('::1', 300),
+    ]);
   });
 
   it('should set IPv4', async () => {

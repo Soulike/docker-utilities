@@ -39,7 +39,7 @@
     ]
   },
   "lint-staged": {
-    "(servers|packages)/**/src/**/*.(j|t)(s|sx)": [
+    "*.m?(j|t)(s|sx|son)": [
       "eslint --fix",
       "prettier --write --ignore-unknown"
     ]
