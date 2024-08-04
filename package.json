@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Utilities built into docker images.",
   "scripts": {
-    "prepare": "test -d node_modules/husky && husky || echo \"husky is not installed\"",
-    "install": "pnpm --filter \"./packages/**\" run -r build && pnpm --filter \"./packages/**\" run -r test"
+    "prepare": "test -d node_modules/husky && husky || echo \"husky is not installed\""
   },
   "keywords": [],
   "author": "Soulike",
@@ -15,7 +14,6 @@
     "@jest/globals": "^29.7.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^22.0.0",
-    "babel-jest": "^29.7.0",
     "commitlint": "^19.3.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
@@ -24,7 +22,7 @@
     "jest": "^29.7.0",
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.3",
-    "ts-jest": "^29.2.3",
+    "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.18.0"

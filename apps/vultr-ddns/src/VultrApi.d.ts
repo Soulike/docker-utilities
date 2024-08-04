@@ -1,4 +1,4 @@
-import type {DNSRecord} from './DNSRecord.js';
+import type {DNSRecord} from './DNSRecord';
 
 export interface VultrDNSRecords {
   records: readonly Readonly<VultrDNSRecord>[];

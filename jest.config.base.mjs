@@ -3,15 +3,10 @@
  * https://jestjs.io/docs/configuration
  */
 
-/**
- * @type {import('jest').Config}
- */
+/** @type {import('jest').Config} */
 const config = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  transform: {
-    '^.+\\.ts?$': ['ts-jest', {}],
-  },
 };
 
 export default config;

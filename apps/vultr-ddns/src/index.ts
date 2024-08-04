@@ -1,7 +1,7 @@
 import {env} from 'node:process';
 import * as assert from 'node:assert';
-import {DNSConfigurator} from './DNSConfigurator.js';
-import {IPQuery} from './IPQuery.js';
+import {DNSConfigurator} from './DNSConfigurator';
+import {IPQuery} from './IPQuery';
 
 const API_KEY = env['VULTR_API_KEY'];
 const DOMAIN = env['DOMAIN'];
