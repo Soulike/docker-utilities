@@ -2,6 +2,7 @@ import {env} from 'node:process';
 import * as assert from 'node:assert';
 import {DNSConfigurator} from './DNSConfigurator';
 import {IPQuery} from './IPQuery';
+import {Logger} from 'logger';
 
 const API_KEY = env['VULTR_API_KEY'];
 const DOMAIN = env['DOMAIN'];
@@ -21,6 +22,7 @@ if (IPV4_SUBDOMAIN) {
   setInterval(async () => {
     const address = await IPQuery.getIPv4();
     await dnsConfigurator.setIPv4(address, DDNS_INTERVAL);
+    Logger.info(`DNS A record of ${IPV4_SUBDOMAIN}.${DOMAIN} is updated to ${address}.`);
   }, DDNS_INTERVAL);
 }
 
@@ -33,5 +35,6 @@ if (IPV6_SUBDOMAIN) {
     );
     const address = await IPQuery.getIPv6();
     await dnsConfigurator.setIPv6(address, DDNS_INTERVAL);
+    Logger.info(`DNS AAAA record of ${IPV6_SUBDOMAIN}.${DOMAIN} is updated to ${address}.`);
   }, DDNS_INTERVAL);
 }
