@@ -2,13 +2,13 @@ services:
   vultr-ddns:
     restart: always
     image: 'soulike/vultr-ddns:latest'
-  secrets:
-    - vultr-api-key
-  environment:
-    - VULTR_API_KEY_FILE=/run/secrets/vultr-api-key
-    - DOMAIN=soulike.tech
-    - IPV4_SUBDOMAIN=ipv4.ddns
-    - IPV6_SUBDOMAIN=ipv6.ddns
+    secrets:
+      - vultr-api-key
+    environment:
+      - VULTR_API_KEY_FILE=/run/secrets/vultr-api-key
+      - DOMAIN=soulike.tech
+      - IPV4_SUBDOMAIN=ipv4.ddns
+      - IPV6_SUBDOMAIN=ipv6.ddns
 secrets:
   vultr-api-key:
     file: $HOME/vultr-api-key
