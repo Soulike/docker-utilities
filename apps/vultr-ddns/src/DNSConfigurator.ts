@@ -1,4 +1,4 @@
-import type {VultrDNSRecord, VultrDNSRecords} from './VultrApi';
+import type {VultrDNSRecord, VultrDNSRecords} from './VultrAPI';
 import * as assert from 'node:assert';
 import {DNSRecord, IPv4DNSRecord, IPv6DNSRecord} from './DNSRecord';
 import {Address4, Address6} from 'ip-address';
