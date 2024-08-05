@@ -14,6 +14,8 @@ on:
 jobs:
   test:
     uses: ./.github/workflows/run-pnpm-test.yml
+    env:
+      VULTR_API_KEY: ${{ secrets.VULTR_API_KEY }}
     with:
       working-directory: ./apps/vultr-ddns
   build:
