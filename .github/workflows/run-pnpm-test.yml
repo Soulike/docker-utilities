@@ -3,7 +3,7 @@ name: Run Test
 on:
   workflow_call:
     inputs:
-      woring-directory:
+      working-directory:
         required: true
         type: string
 
@@ -24,4 +24,4 @@ jobs:
         run: 'pnpm i'
       - name: Run tests
         run: 'pnpm test'
-        working-directory: ${{ woring-directory }}
+        working-directory: ${{ working-directory }}
