@@ -12,8 +12,13 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    uses: ./.github/workflows/run-pnpm-test.yml
+    with:
+      working-directory: ./apps/vultr-ddns
   build:
     uses: ./.github/workflows/docker-build.yml
+    needs: test
     secrets: inherit
     with:
       docker-file-path: ./Dockerfile

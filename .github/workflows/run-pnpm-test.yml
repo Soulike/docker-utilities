@@ -1,0 +1,27 @@
+name: Run Test
+
+on:
+  workflow_call:
+    inputs:
+      woring-directory:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          check-latest: true
+      - name: Install pnpm
+        run: 'npm install -g pnpm'
+      - name: Install dependencies
+        run: 'pnpm i'
+      - name: Run tests
+        run: 'pnpm test'
+        working-directory: ${{ woring-directory }}
