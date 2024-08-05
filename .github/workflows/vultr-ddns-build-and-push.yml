@@ -11,13 +11,15 @@ on:
       - 'Dockerfile'
   workflow_dispatch:
 
+env:
+  VULTR_API_KEY: ${{ secrets.VULTR_API_KEY }}
+
 jobs:
   test:
     uses: ./.github/workflows/run-pnpm-test.yml
-    env:
-      VULTR_API_KEY: ${{ secrets.VULTR_API_KEY }}
     with:
       working-directory: ./apps/vultr-ddns
+      env-json: ${{ toJSON(env) }}
   build:
     uses: ./.github/workflows/docker-build.yml
     needs: test
