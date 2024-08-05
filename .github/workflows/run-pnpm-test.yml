@@ -6,14 +6,12 @@ on:
       working-directory:
         required: true
         type: string
-      env-json:
+      vultr-api-key:
         required: false
         type: string
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    env: ${{ fromJSON(inputs.env-json) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,3 +27,5 @@ jobs:
       - name: Run tests
         run: 'pnpm test'
         working-directory: ${{ inputs.working-directory }}
+        env:
+          VULTR_API_KEY: ${{ inputs.vultr-api-key }}
