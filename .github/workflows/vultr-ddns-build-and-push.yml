@@ -16,7 +16,8 @@ jobs:
     uses: ./.github/workflows/run-pnpm-test.yml
     with:
       working-directory: ./apps/vultr-ddns
-      vultr-api-key: ${{ secrets.VULTR_API_KEY }}
+    secrets:
+      VULTR_API_KEY: ${{ secrets.VULTR_API_KEY }}
   build:
     uses: ./.github/workflows/docker-build.yml
     needs: test
