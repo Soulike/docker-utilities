@@ -13,6 +13,7 @@ describe('Retrieve IP Addresses from Remote', () => {
     if(process.env['GITHUB_ACTIONS']) {
       Logger.warning('Skipping as running in GitHub Actions, which does not support IPv6.');
       expect(true).toBe(true);
+      return;
     }
     const ipv6 = await IPQuery.getIPv6();
     expect(Address6.isValid(ipv6)).toBeTruthy();
