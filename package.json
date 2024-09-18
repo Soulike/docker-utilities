@@ -6,7 +6,8 @@
     "prepare": "test -d node_modules/husky && husky || echo \"husky is not installed\"",
     "install": "pnpm --filter \"./packages/**\" run -r build",
     "start:vultr-ddns": "docker compose pull vultr-ddns && docker compose down vultr-ddns && docker compose up -d vultr-ddns",
-    "stop:vultr-ddns": "docker compose down vultr-ddns"
+    "stop:vultr-ddns": "docker compose down vultr-ddns",
+    "update": "docker compose pull && docker compose up -d"
   },
   "keywords": [],
   "author": "Soulike",
